@@ -24,7 +24,7 @@ This Nix module allows you to declaratively disable a predefined set of default 
 
       # Note: this is to avoid a logout/login to make the preferences changes take effect
       system.activationScripts.postActivation.text = ''
-    /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
+    sudo -u YOUR_USERNAME /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
     '';
 
       system.defaults.CustomUserPreferences = {
@@ -44,3 +44,5 @@ This Nix module allows you to declaratively disable a predefined set of default 
 
 4.  **Apply Changes**:
     If for whatever reason you still see the old shortcuts in 'System Settings', Try logging out and then logging back into your macOS user account.
+
+## This will configure your system to disable the Apple Symbolic Hotkeys specified in the `editMe_disableHotKeys` list within the module.
